@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  padding: 30px;
+  background: #333;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  border: 1px solid #111;
+  gap: 10px;
+  padding-bottom: 70px;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, #0005);
+}
+
+.container h2 {
+  color: #666;
+  font-weight: 500;
+}
+
+/* .container .input {
+  position: relative;
+  width: 100%;
+} */
+
+.container.input {
+  position: relative;
+  width: 100%;
+}
+
+.container .input input {
+  position: relative;
+  width: 100%;
+  background: #222;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: white;
+  font-size: 1.1em;
+}
+
+.container .strengthMeter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #222;
+}
+
+.container .strengthMeter::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  transition: 0.5s;
+  background: #f00;
+}
+
+.container.weak .strengthMeter::before {
+  width: 8%;
+  background: #ff0000cc;
+  filter: drop-shadow(0 0 5px #ff0000cc) drop-shadow(0 0 10px #ff0000cc)
+    drop-shadow(0 0 20px #ff0000cc);
+  -webkit-filter: drop-shadow(0 0 5px #ff0000cc) drop-shadow(0 0 10px #ff0000cc)
+    drop-shadow(0 0 20px #ff0000cc);
+}
+
+.container.medium .strengthMeter::before {
+  width: 35%;
+  background: #ffa600bc;
+  filter: drop-shadow(0 0 5px #ffa600bc) drop-shadow(0 0 10px #ffa600bc)
+    drop-shadow(0 0 20px #ffa600bc);
+  -webkit-filter: drop-shadow(0 0 5px #ffa600bc) drop-shadow(0 0 10px #ffa600bc)
+    drop-shadow(0 0 20px #ffa600bc);
+}
+
+.container.strong .strengthMeter::before {
+  width: 65%;
+  background: #33a93fd1;
+  filter: drop-shadow(0 0 5px #33a93fd1) drop-shadow(0 0 10px #33a93fd1)
+    drop-shadow(0 0 20px #33a93fd1);
+  -webkit-filter: drop-shadow(0 0 5px #33a93fd1) drop-shadow(0 0 10px #33a93fd1)
+    drop-shadow(0 0 20px #33a93fd1);
+}
+
+.container.VeryStrong .strengthMeter::before {
+  width: 85%;
+  background: #0dff00;
+  filter: drop-shadow(0 0 5px #0dff00) drop-shadow(0 0 10px #0dff00)
+    drop-shadow(0 0 20px #0dff00);
+  -webkit-filter: drop-shadow(0 0 5px #0dff00) drop-shadow(0 0 10px #0dff00)
+    drop-shadow(0 0 20px #0dff00);
+}
+
+.container .strengthMeter::after {
+  /* content: ""; */
+  position: absolute;
+  top: -45px;
+  left: 30px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.container.weak .strengthMeter::after {
+  content: "Your password is too Poor";
+  color: #ff0000cc;
+  filter: drop-shadow(0 0 5px #ff0000cc);
+  -webkit-filter: drop-shadow(0 0 5px #ff0000cc);
+}
+
+.container.medium .strengthMeter::after {
+  content: "Your Password is Medium";
+  color: #ffa600bc;
+  filter: drop-shadow(0 0 5px #ffa600bc);
+  -webkit-filter: drop-shadow(0 0 5px #ffa600bc);
+}
+
+.container.strong .strengthMeter::after {
+  content: "Your Password is Strong";
+  color: #0dff00;
+  filter: drop-shadow(0 0 5px #33a93fd1);
+  -webkit-filter: drop-shadow(0 0 5px #33a93fd1);
+}
+
+.container.VeryStrong .strengthMeter::after {
+  content: "Your Password is VeryStrong";
+  color: #0dff00;
+  filter: drop-shadow(0 0 5px #33a93fd1);
+  -webkit-filter: drop-shadow(0 0 5px #33a93fd1);
+}
+
+.show {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: #333;
+  border: 6px solid #222;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show::before {
+  content: "Show";
+  font-size: 0.6em;
+  color: white;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.show.hide::before {
+  content: "Hide";
+}
